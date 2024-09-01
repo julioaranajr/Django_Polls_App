@@ -13,7 +13,10 @@ Each attribute of the class represents a field in the database.
 - The models are used in the views to interact with the database.
 
 """
+import datetime
+
 from django.db import models
+from django.utils import timezone
 
 
 class Question(models.Model):
@@ -30,6 +33,20 @@ class Question(models.Model):
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField("date published")
 
+    def __str__(self):
+        """
+        Returns the text of the question.
+        """
+        return self.question_text
+
+    def was_published_recently(self):
+        """
+        Returns True if the question was published within the last day.
+        """
+        now = timezone.now()
+        return now - datetime.timedelta(days=1) <= self.pub_date <= now
+
+
 
 class Choice(models.Model): # Choice is for the choices and the votes
     """
@@ -45,3 +62,9 @@ class Choice(models.Model): # Choice is for the choices and the votes
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
     votes = models.IntegerField(default=0)
+
+    def __str__(self):
+        """
+        Returns the text of the choice.
+        """
+        return self.choice_text
