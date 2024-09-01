@@ -70,9 +70,14 @@ After edit the `polls/models.py` file, run again the command `python manage.py s
 
 # Request an ID that doesn't exist, this will raise an exception.
 >>> Question.objects.get(id=2)
-Traceback (most recent call last):
-    ...
-DoesNotExist: Question matching query does not exist.
+# Traceback (most recent call last):
+#   File "<console>", line 1, in <module>
+#   File "/Django_Polls_App/venv/lib/python3.10/site-packages/django/db/models/manager.py", line 87, in manager_method
+#     return getattr(self.get_queryset(), name)(*args, **kwargs)
+#   File "/Django_Polls_App/venv/lib/python3.10/site-packages/django/db/models/query.py", line 649, in get
+#     raise self.model.DoesNotExist(
+# polls.models.Question.DoesNotExist: Question matching query does not exist.
+
 
 # Lookup by a primary key is the most common case, so Django provides a
 # shortcut for primary-key exact lookups.
@@ -124,4 +129,33 @@ DoesNotExist: Question matching query does not exist.
 # Let's delete one of the choices. Use delete() for that.
 >>> c = q.choice_set.filter(choice_text__startswith="Just hacking")
 >>> c.delete()
+```
+
+## Create an admin user
+
+To create an admin user, use this command:
+
+```bash
+❯ python manage.py createsuperuser
+```
+
+Enter your desired username and press enter.
+
+```bash
+Username: admin # this is an example, you can use any username
+```
+
+You will then be prompted for your desired email address:
+
+```bash
+Email address: admin@python.org # this is an example, you can use your email
+```
+
+The final step is to enter your password. You will be asked to enter your password twice, 
+the second time as a confirmation of the first.
+
+```bash
+Password: ********
+Password (again): ********
+Superuser created successfully.
 ```
