@@ -1,7 +1,7 @@
 # Tests for the Polls App
 
 ```bash
-❯ python manage.py test polls
+python3 manage.py test polls
 Found 8 test(s).
 Creating test database for alias 'default'...
 System check identified no issues (0 silenced).

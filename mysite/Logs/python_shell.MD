@@ -78,7 +78,6 @@ After edit the `polls/models.py` file, run again the command `python manage.py s
 #     raise self.model.DoesNotExist(
 # polls.models.Question.DoesNotExist: Question matching query does not exist.
 
-
 # Lookup by a primary key is the most common case, so Django provides a
 # shortcut for primary-key exact lookups.
 # The following is identical to Question.objects.get(id=1).
@@ -136,7 +135,7 @@ After edit the `polls/models.py` file, run again the command `python manage.py s
 To create an admin user, use this command:
 
 ```bash
-❯ python manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 Enter your desired username and press enter.
@@ -151,7 +150,7 @@ You will then be prompted for your desired email address:
 Email address: admin@python.org # this is an example, you can use your email
 ```
 
-The final step is to enter your password. You will be asked to enter your password twice, 
+The final step is to enter your password. You will be asked to enter your password twice,
 the second time as a confirmation of the first.
 
 ```bash
@@ -184,7 +183,7 @@ Django provides a test Client to simulate a user interacting with the code at th
 We will start again with the shell, where we need to do a couple of things that won’t be necessary in tests.py. The first is to set up the test environment in the shell:
 
 ```bash
-❯ python manage.py shell
+python manage.py shell
 ```
 
 Then, we need to import the test Client class:
@@ -193,6 +192,7 @@ Then, we need to import the test Client class:
 >>> from django.test.utils import setup_test_environment
 >>> setup_test_environment()
 ```
+
 setup_test_environment() installs a template renderer which will allow us to examine some additional attributes on responses such as response.context that otherwise wouldn’t be available. Note that this method does not set up a test database, so the following will be run against the existing database and the output may differ slightly depending on what questions you already created. You might get unexpected results if your TIME_ZONE in settings.py isn’t correct. If you don’t remember setting it earlier, check it before continuing.
 
 Next we need to import the test client class (later in tests.py we will use the django.test.TestCase class, which comes with its own client, so this won’t be required):

@@ -1,5 +1,7 @@
 # Django_Polls_App
 
+![Django_Polls_App](https://socialify.git.ci/julioaranajr/Django_Polls_App/image?font=Raleway&language=1&name=1&owner=1&pattern=Brick%20Wall&stargazers=1&theme=Dark)
+
 A simple Django application to create and manage polls.
 
 Let’s learn by example.
@@ -72,6 +74,7 @@ These files are:
 Let’s verify your Django project works. Change into the outer mysite directory, if you haven’t already, and run the following commands:
 
 ```bash
+cd mysite
 python manage.py runserver
 ```
 
@@ -136,18 +139,15 @@ polls/
 
 This directory structure will house the poll application.
 
-
 ## About me
 
 <a href="https://github.com/julioaranajr/python-course/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=julioaranajr/python-course" alt="Contributors">
 </a>
 
-
 [![GitHub][GitHub-shield]][GitHub-url]
 [![Website][website-shield]][website-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
-
 
 ## Contact
 

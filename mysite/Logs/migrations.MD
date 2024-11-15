@@ -1,7 +1,7 @@
 # Migrations
 
 ```bash
-❯ python manage.py migrate
+python3 manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, sessions
 Running migrations:
@@ -28,7 +28,7 @@ Running migrations:
 ## Activating Models
 
 ```bash
-❯ python manage.py migrate
+python3 manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, sessions
 Running migrations:
@@ -38,7 +38,7 @@ Running migrations:
 ```
 
 ```bash
-❯ python manage.py makemigrations polls
+python3 manage.py makemigrations polls
 Migrations for 'polls':
   polls/migrations/0001_initial.py
     + Create model Question
@@ -47,10 +47,10 @@ Migrations for 'polls':
 
 By running makemigrations, you’re telling Django that you’ve made some changes to your models (in this case, you’ve made new ones) and that you’d like the changes to be stored as a migration.
 
-Migrations are how Django stores changes to your models (and thus your database schema) - they’re files on disk. You can read the migration for your new model if you like; it’s the file polls/migrations/0001_initial.py.
+Migrations are how Django stores changes to your models (and thus your database schema) - they’re files on disk. You can read the migration for your new model if you like; it’s the file `polls/migrations/0001_initial.py.`
 
 ```bash
-❯ python manage.py sqlmigrate polls 0001
+python manage.py sqlmigrate polls 0001
 BEGIN;
 --
 -- Create model Question
@@ -68,7 +68,7 @@ The sqlmigrate command takes migration names and returns their SQL,
 Now, run migrate again to create those model tables in your database:
 
 ```bash
-❯ python manage.py migrate
+python manage.py migrate
 Operations to perform:
   Apply all migrations: admin, auth, contenttypes, polls, sessions
 Running migrations:
